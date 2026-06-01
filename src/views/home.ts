@@ -2,6 +2,7 @@ import { escapeHtml } from "./shared";
 
 const appTitle = "Notero";
 
+// Stryker disable all: homepage rows are static seed content for the current workspace shell.
 const reviewRows = [
   {
     key: "agents-review",
@@ -34,6 +35,7 @@ const libraryRows = [
     labels: ["pdf", "export"],
   },
 ];
+// Stryker restore all
 
 export function renderHomePage(routes: Array<{ path: string; purpose: string }>): string {
   const routeList = routes

@@ -17,9 +17,13 @@ describe("serializeBibTex", () => {
 
     expect(bibtex).toContain("@misc{widing2026asdlc,");
     expect(bibtex).toContain("@article{utrecht2020asreview,");
+    expect(bibtex).toContain("\n\n@article{utrecht2020asreview,");
+    expect(bibtex).toContain("author = {van de Schoot, Rens and de Bruin, Jonathan and Schram, Raoul},\n  title");
     expect(bibtex).toContain("title = {Open source software for efficient and transparent reviews}");
+    expect(bibtex).toContain("year = {2020}");
     expect(bibtex).toContain("doi = {10.1038/s42256-020-00287-7}");
     expect(bibtex).toContain("url = {https://www.zotero.org/support/kb/annotations_in_database}");
+    expect(bibtex).not.toContain("booktitle =");
   });
 
   it("rejects duplicate citation keys before export", () => {
@@ -52,5 +56,20 @@ describe("serializeBibTex", () => {
     ]);
 
     expect(bibtex).toContain("title = {Use \\{structured\\} evidence}");
+  });
+
+  it("escapes backslashes in field values", () => {
+    const firstItem = seedItem(0);
+    const bibtex = serializeBibTex([
+      {
+        ...firstItem,
+        citation: {
+          ...firstItem.citation,
+          title: "Use \\cite keys",
+        },
+      },
+    ]);
+
+    expect(bibtex).toContain("title = {Use \\textbackslash{}cite keys}");
   });
 });

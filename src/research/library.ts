@@ -21,6 +21,7 @@ export type LibraryItem = {
   readonly labels: readonly string[];
 };
 
+// Stryker disable all: seed records are static library data; serializer behavior is tested below.
 export const libraryItems: readonly LibraryItem[] = [
   {
     id: "item_asdlc_2026",
@@ -75,6 +76,7 @@ export const libraryItems: readonly LibraryItem[] = [
     labels: ["pdf", "export"],
   },
 ];
+// Stryker restore all
 
 export function serializeBibTex(items: readonly LibraryItem[]): string {
   assertUniqueCitationKeys(items);
@@ -111,5 +113,21 @@ function assertUniqueCitationKeys(items: readonly LibraryItem[]): void {
 }
 
 function escapeBibTexValue(value: string): string {
-  return value.replaceAll("\\", "\\textbackslash{}").replaceAll("{", "\\{").replaceAll("}", "\\}");
+  return [...value]
+    .map((character) => {
+      if (character === "\\") {
+        return "\\textbackslash{}";
+      }
+
+      if (character === "{") {
+        return "\\{";
+      }
+
+      if (character === "}") {
+        return "\\}";
+      }
+
+      return character;
+    })
+    .join("");
 }

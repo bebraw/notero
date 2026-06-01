@@ -33,6 +33,7 @@ export type EvidenceExport = {
   readonly syntheses: readonly Synthesis[];
 };
 
+// Stryker disable all: seed evidence records are static data; traceability rules remain mutated and tested.
 export const evidenceExport: EvidenceExport = {
   annotations: [
     {
@@ -82,6 +83,7 @@ export const evidenceExport: EvidenceExport = {
     },
   ],
 };
+// Stryker restore all
 
 export function createEvidenceExport(): EvidenceExport {
   assertTraceableEvidence(evidenceExport);
