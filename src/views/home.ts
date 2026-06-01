@@ -136,10 +136,10 @@ export function renderHomePage(routes: Array<{ path: string; purpose: string }>)
               <p class="font-semibold">capture</p>
               <p class="mt-1 text-app-text-soft">pdf / bib</p>
             </div>
-            <div class="rounded-lg border border-app-line bg-app-surface px-4 py-3">
+            <a class="rounded-lg border border-app-line bg-app-surface px-4 py-3 transition hover:border-app-accent/35 hover:bg-app-accent-ghost focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-app-accent/40" href="/api/review/evidence">
               <p class="font-semibold">screen</p>
               <p class="mt-1 text-app-text-soft">include / exclude</p>
-            </div>
+            </a>
             <div class="rounded-lg border border-app-line bg-app-surface px-4 py-3">
               <p class="font-semibold">write</p>
               <p class="mt-1 text-app-text-soft">bibtex / csv</p>

@@ -1,6 +1,6 @@
 # ADR-033: Model Traceable Review Evidence
 
-**Status:** Accepted
+**Status:** Implemented
 
 **Date:** 2026-06-01
 

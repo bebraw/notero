@@ -27,7 +27,7 @@ describe("worker", () => {
     await expect(response.json()).resolves.toEqual({
       ok: true,
       name: "vibe-template-worker",
-      routes: ["/", "/api/health", "/api/exports/bibtex"],
+      routes: ["/", "/api/health", "/api/exports/bibtex", "/api/review/evidence"],
     });
   });
 
@@ -37,6 +37,18 @@ describe("worker", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("content-type")).toBe("text/x-bibtex; charset=utf-8");
     await expect(response.text()).resolves.toContain("@misc{widing2026asdlc,");
+  });
+
+  it("returns the traceable evidence export", async () => {
+    const response = await handleRequest(new Request("http://example.com/api/review/evidence"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toContain("application/json");
+    const body = await response.json();
+    expect(body.observations[0]).toMatchObject({
+      id: "obs_screening_effort",
+      sourceAnnotationIds: ["ann_asreview_screening_1"],
+    });
   });
 
   it("returns a not found page for unknown routes", async () => {

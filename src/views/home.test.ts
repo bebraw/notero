@@ -13,6 +13,7 @@ describe("renderHomePage", () => {
     expect(html).toContain("Agentic software development");
     expect(html).toContain("utrecht2020asreview");
     expect(html).toContain("/api/exports/bibtex");
+    expect(html).toContain("/api/review/evidence");
     expect(html).toContain('rel="stylesheet" href="/styles.css"');
     expect(html).not.toContain("Stryker was here!");
     expect(html).not.toContain("vibe-template Worker");

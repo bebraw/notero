@@ -27,9 +27,7 @@ ADRs are grouped by lifecycle status:
 
 ## Accepted ADRs
 
-| ADR                                                              | Status   | Summary                                                                               |
-| ---------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------- |
-| [ADR-033](./accepted/ADR-033-model-traceable-review-evidence.md) | Accepted | Model review evidence through source-linked annotations, observations, and syntheses. |
+No accepted-only ADRs are currently pending implementation.
 
 ## Implemented ADRs
 
@@ -67,6 +65,7 @@ ADRs are grouped by lifecycle status:
 | [ADR-030](./implemented/ADR-030-reserve-full-mutation-ci-for-github.md)               | Implemented | Reserve the full mutation workflow job for GitHub and skip it in local Agent CI.               |
 | [ADR-031](./implemented/ADR-031-build-web-first-review-workspace.md)                  | Implemented | Build Notero as a web-first, single-researcher review workspace before a Zotero replacement.   |
 | [ADR-032](./implemented/ADR-032-make-bibtex-and-user-data-portable.md)                | Implemented | Treat BibTeX exchange and portable user-owned research data as core product constraints.       |
+| [ADR-033](./implemented/ADR-033-model-traceable-review-evidence.md)                   | Implemented | Model review evidence through source-linked annotations, observations, and syntheses.          |
 
 ## Creating A New ADR
 

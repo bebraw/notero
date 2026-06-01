@@ -9,6 +9,7 @@ test("renders the worker home page", async ({ page }) => {
   await expect(page.getByText("Agentic software development")).toBeVisible();
   await expect(page.locator('a[href="/api/health"]').first()).toBeVisible();
   await expect(page.locator('a[href="/api/exports/bibtex"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/api/review/evidence"]').first()).toBeVisible();
 });
 
 test("serves the health endpoint", async ({ request }) => {
@@ -18,7 +19,7 @@ test("serves the health endpoint", async ({ request }) => {
   await expect(response.json()).resolves.toEqual({
     ok: true,
     name: "vibe-template-worker",
-    routes: ["/", "/api/health", "/api/exports/bibtex"],
+    routes: ["/", "/api/health", "/api/exports/bibtex", "/api/review/evidence"],
   });
 });
 
@@ -28,6 +29,16 @@ test("serves the BibTeX export", async ({ request }) => {
   expect(response.ok()).toBe(true);
   expect(response.headers()["content-type"]).toContain("text/x-bibtex");
   await expect(response.text()).resolves.toContain("@article{utrecht2020asreview,");
+});
+
+test("serves the traceable evidence export", async ({ request }) => {
+  const response = await request.get("/api/review/evidence");
+
+  expect(response.ok()).toBe(true);
+  expect(response.headers()["content-type"]).toContain("application/json");
+  await expect(response.json()).resolves.toMatchObject({
+    syntheses: [{ id: "syn_review_workflow", sourceObservationIds: ["obs_screening_effort", "obs_traceable_context"] }],
+  });
 });
 
 test("serves the generated stylesheet", async ({ request }) => {
