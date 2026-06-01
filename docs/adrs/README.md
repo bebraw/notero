@@ -27,7 +27,11 @@ ADRs are grouped by lifecycle status:
 
 ## Accepted ADRs
 
-No accepted-only ADRs are currently pending implementation.
+| ADR                                                                 | Status   | Summary                                                                                      |
+| ------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------- |
+| [ADR-031](./accepted/ADR-031-build-web-first-review-workspace.md)   | Accepted | Build Notero as a web-first, single-researcher review workspace before a Zotero replacement. |
+| [ADR-032](./accepted/ADR-032-make-bibtex-and-user-data-portable.md) | Accepted | Treat BibTeX exchange and portable user-owned research data as core product constraints.     |
+| [ADR-033](./accepted/ADR-033-model-traceable-review-evidence.md)    | Accepted | Model review evidence through source-linked annotations, observations, and syntheses.        |
 
 ## Implemented ADRs
 
