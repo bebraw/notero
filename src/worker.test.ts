@@ -5,7 +5,7 @@ import { ensureGeneratedStylesheet } from "./test-support";
 ensureGeneratedStylesheet();
 
 describe("worker", () => {
-  it("renders the stub home page", async () => {
+  it("renders the research workspace home page", async () => {
     const response = await handleRequest(new Request("http://example.com/"));
 
     expect(response.status).toBe(200);
@@ -13,7 +13,9 @@ describe("worker", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
 
     const body = await response.text();
-    expect(body).toContain("vibe-template Worker");
+    expect(body).toContain("Notero");
+    expect(body).toContain("Research Library");
+    expect(body).toContain("Agentic software development");
     expect(body).toContain("/api/health");
   });
 

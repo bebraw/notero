@@ -1,4 +1,4 @@
-export const exampleRoutes = [
-  { path: "/", purpose: "Editorial starter page for developers" },
-  { path: "/api/health", purpose: "JSON health endpoint for tooling and smoke tests" },
+export const appRoutes = [
+  { path: "/", purpose: "Research workspace" },
+  { path: "/api/health", purpose: "Health probe" },
 ];

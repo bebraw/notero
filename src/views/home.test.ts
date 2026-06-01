@@ -1,18 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { exampleRoutes } from "../app-routes";
+import { appRoutes } from "../app-routes";
 import { renderHomePage } from "./home";
 
 describe("renderHomePage", () => {
-  it("renders the route index starter copy and stylesheet wiring", () => {
-    const html = renderHomePage(exampleRoutes);
+  it("renders the Notero workspace and stylesheet wiring", () => {
+    const html = renderHomePage(appRoutes);
 
-    expect(html).toContain("Route Index");
-    expect(html).toContain("A runnable Cloudflare Worker baseline with a route index");
-    expect(html).toContain("Editorial starter page for developers");
-    expect(html).toContain("JSON health endpoint for tooling and smoke tests");
-    expect(html).toContain("Use the health probe to confirm the Worker is live");
+    expect(html).toContain("Notero");
+    expect(html).toContain("Research Library");
+    expect(html).toContain("Library");
+    expect(html).toContain("Reviews");
+    expect(html).toContain("Agentic software development");
+    expect(html).toContain("utrecht2020asreview");
     expect(html).toContain('rel="stylesheet" href="/styles.css"');
     expect(html).not.toContain("Stryker was here!");
-    expect(html.match(/<li>/g)).toHaveLength(exampleRoutes.length);
+    expect(html).not.toContain("vibe-template Worker");
+    expect(html.match(/<li[ >]/g)).toHaveLength(appRoutes.length + 5);
   });
 });

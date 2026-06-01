@@ -1,6 +1,6 @@
 # ADR-031: Build Web-First Review Workspace
 
-**Status:** Accepted
+**Status:** Implemented
 
 **Date:** 2026-06-01
 

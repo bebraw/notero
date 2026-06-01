@@ -3,11 +3,10 @@ import { expect, test } from "@playwright/test";
 test("renders the worker home page", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { level: 1, name: "vibe-template Worker" })).toBeVisible();
-  await expect(
-    page.getByText("A runnable Cloudflare Worker baseline with a route index, a health probe, and room for real feature work."),
-  ).toBeVisible();
-  await expect(page.getByRole("heading", { level: 2, name: "Route Index" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Notero" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Library" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Reviews" })).toBeVisible();
+  await expect(page.getByText("Agentic software development")).toBeVisible();
   await expect(page.locator('a[href="/api/health"]').first()).toBeVisible();
 });
 

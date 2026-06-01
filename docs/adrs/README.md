@@ -27,11 +27,10 @@ ADRs are grouped by lifecycle status:
 
 ## Accepted ADRs
 
-| ADR                                                                 | Status   | Summary                                                                                      |
-| ------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------- |
-| [ADR-031](./accepted/ADR-031-build-web-first-review-workspace.md)   | Accepted | Build Notero as a web-first, single-researcher review workspace before a Zotero replacement. |
-| [ADR-032](./accepted/ADR-032-make-bibtex-and-user-data-portable.md) | Accepted | Treat BibTeX exchange and portable user-owned research data as core product constraints.     |
-| [ADR-033](./accepted/ADR-033-model-traceable-review-evidence.md)    | Accepted | Model review evidence through source-linked annotations, observations, and syntheses.        |
+| ADR                                                                 | Status   | Summary                                                                                  |
+| ------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------- |
+| [ADR-032](./accepted/ADR-032-make-bibtex-and-user-data-portable.md) | Accepted | Treat BibTeX exchange and portable user-owned research data as core product constraints. |
+| [ADR-033](./accepted/ADR-033-model-traceable-review-evidence.md)    | Accepted | Model review evidence through source-linked annotations, observations, and syntheses.    |
 
 ## Implemented ADRs
 
@@ -67,6 +66,7 @@ ADRs are grouped by lifecycle status:
 | [ADR-028](./implemented/ADR-028-use-incremental-local-mutation-gate.md)               | Implemented | Use incremental Stryker runs in the local quality gate while GitHub CI runs full mutation.     |
 | [ADR-029](./implemented/ADR-029-use-relative-stryker-concurrency.md)                  | Implemented | Use percentage-based Stryker worker concurrency instead of a fixed worker count.               |
 | [ADR-030](./implemented/ADR-030-reserve-full-mutation-ci-for-github.md)               | Implemented | Reserve the full mutation workflow job for GitHub and skip it in local Agent CI.               |
+| [ADR-031](./implemented/ADR-031-build-web-first-review-workspace.md)                  | Implemented | Build Notero as a web-first, single-researcher review workspace before a Zotero replacement.   |
 
 ## Creating A New ADR
 

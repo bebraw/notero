@@ -4,14 +4,18 @@
 
 ### Context
 
-This template needs a concrete runnable starting point so developers can clone it, start a local app immediately, and exercise the existing quality-gate tools against a real surface instead of empty scaffolding. The starter should also stay visually restrained so cloned projects can replace it quickly instead of first undoing a loud landing page.
+This project needs a concrete runnable starting point so the research-library
+product can evolve behind a tested Worker surface. The root page should stay
+minimal and visually restrained while reflecting Notero's actual product
+direction rather than a generic starter shell.
 
 ### Architecture
 
 - **Entry points:** `wrangler dev` via `src/worker.ts`
 - **Source layout:** `src/worker.ts` routes requests, `src/api/` holds API handlers, and `src/views/` holds HTML rendering modules.
 - **Styling pipeline:** `src/tailwind-input.css` compiles to `.generated/styles.css`, which the Worker serves at `/styles.css`.
-- **Starter UI contract:** `src/views/home.ts` renders a narrow editorial page with a route index and a prominent health-probe entry point.
+- **Starter UI contract:** `src/views/home.ts` renders a minimal Notero research
+  workspace with library, review, route, and workflow anchors.
 - **Client code boundary:** Worker-rendered HTML must not embed executable browser code inline. Browser behavior belongs in typed TypeScript modules before being served to clients.
 - **Data models:** None yet. The stub is stateless.
 - **Dependencies:** Wrangler provides the Worker runtime; Playwright and Vitest verify the behavior.
@@ -19,7 +23,8 @@ This template needs a concrete runnable starting point so developers can clone i
 ### Anti-Patterns
 
 - Do not let the template drift back into an untestable empty shell with no runnable app surface.
-- Do not turn the starter into a product-marketing shell that cloned projects must first dismantle.
+- Do not turn the app into a product-marketing shell that must be dismantled
+  before useful research workflows can be built.
 - Do not add feature-specific persistence or auth behavior to the stub without updating this spec and the relevant ADRs.
 - Do not collapse API handling and rendered views back into one file as the starter evolves.
 - Do not move starter styles back into large inline `<style>` blocks.
@@ -30,16 +35,18 @@ This template needs a concrete runnable starting point so developers can clone i
 ### Definition of Done
 
 - [ ] The template starts locally through Wrangler without extra scaffolding.
-- [ ] The root route returns a visible editorial starter page for developers.
-- [ ] The root route exposes a route index and a prominent health-probe entry point.
+- [ ] The root route returns a visible Notero research workspace.
+- [ ] The root route exposes library, review, workflow, and route anchors.
 - [ ] The health route returns stable JSON for smoke tests and tooling.
 - [ ] The spec is updated in the same change set.
 - [ ] Automated tests cover the critical behavior.
 
 ### Regression Guardrails
 
-- `GET /` must keep returning HTML with a recognizable starter heading.
-- `GET /` must keep rendering the route index and a visible `/api/health` entry point.
+- `GET /` must keep returning HTML with a recognizable Notero heading.
+- `GET /` must keep rendering library and review workspace anchors.
+- `GET /` must keep rendering the route index and a visible `/api/health` entry
+  point.
 - `GET /styles.css` must keep returning the generated stylesheet.
 - Worker/view runtime files must remain free of inline executable browser code.
 - `GET /api/health` must keep returning HTTP 200 JSON with `ok: true`.
@@ -52,11 +59,11 @@ This template needs a concrete runnable starting point so developers can clone i
 
 ### Scenarios
 
-**Scenario: Developer opens the starter app**
+**Scenario: Researcher opens the workspace**
 
 - Given: the Worker is running locally
 - When: the developer visits `/`
-- Then: they see a starter page that explains what the template provides and points them at `/api/health`
+- Then: they see a minimal Notero workspace with library and review sections
 
 **Scenario: Tooling checks app health**
 
