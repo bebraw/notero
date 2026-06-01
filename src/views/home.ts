@@ -114,7 +114,7 @@ export function renderHomePage(routes: Array<{ path: string; purpose: string }>)
           <div class="rounded-lg border border-app-line bg-app-surface p-5 shadow-panel">
             <div class="mb-5 flex items-center justify-between gap-4">
               <h2 class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-app-text-soft">Library</h2>
-              <a class="text-sm font-semibold text-app-accent-strong hover:text-app-accent" href="/api/health">status</a>
+              <a class="text-sm font-semibold text-app-accent-strong hover:text-app-accent" href="/api/exports/bibtex">bibtex</a>
             </div>
             <ul>${libraryList}</ul>
           </div>

@@ -27,8 +27,16 @@ describe("worker", () => {
     await expect(response.json()).resolves.toEqual({
       ok: true,
       name: "vibe-template-worker",
-      routes: ["/", "/api/health"],
+      routes: ["/", "/api/health", "/api/exports/bibtex"],
     });
+  });
+
+  it("returns the BibTeX export", async () => {
+    const response = await handleRequest(new Request("http://example.com/api/exports/bibtex"));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("text/x-bibtex; charset=utf-8");
+    await expect(response.text()).resolves.toContain("@misc{widing2026asdlc,");
   });
 
   it("returns a not found page for unknown routes", async () => {

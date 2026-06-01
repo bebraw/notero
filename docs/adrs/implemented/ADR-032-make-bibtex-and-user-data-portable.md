@@ -1,6 +1,6 @@
 # ADR-032: Make BibTeX And User Data Portable
 
-**Status:** Accepted
+**Status:** Implemented
 
 **Date:** 2026-06-01
 

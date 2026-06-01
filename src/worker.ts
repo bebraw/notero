@@ -1,3 +1,4 @@
+import { createBibTexExportResponse } from "./api/bibtex";
 import { createHealthResponse } from "./api/health";
 import { appRoutes } from "./app-routes";
 import { renderHomePage } from "./views/home";
@@ -23,6 +24,10 @@ export async function handleRequest(request: Request): Promise<Response> {
 
   if (url.pathname === "/api/health") {
     return createHealthResponse(appRoutes.map((route) => route.path));
+  }
+
+  if (url.pathname === "/api/exports/bibtex") {
+    return createBibTexExportResponse();
   }
 
   return htmlResponse(renderNotFoundPage(url.pathname), 404);
