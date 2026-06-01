@@ -6,7 +6,7 @@ test("renders the worker home page", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Notero" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Library" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Reviews" })).toBeVisible();
-  await expect(page.getByText("Agentic software development")).toBeVisible();
+  await expect(page.getByText("Agentic software development", { exact: true })).toBeVisible();
   await expect(page.locator('a[href="/api/health"]').first()).toBeVisible();
   await expect(page.locator('a[href="/api/exports/bibtex"]').first()).toBeVisible();
   await expect(page.locator('a[href="/api/review/evidence"]').first()).toBeVisible();
