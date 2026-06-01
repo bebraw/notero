@@ -1,6 +1,6 @@
 # Development
 
-This document collects development-facing setup and workflow notes for the template.
+This document collects development-facing setup and workflow notes for Citefold.
 
 ## Agent Context
 

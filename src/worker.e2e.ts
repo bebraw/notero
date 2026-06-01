@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("renders the worker home page", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { level: 1, name: "Notero" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Citefold" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Library" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Reviews" })).toBeVisible();
   await expect(page.getByText("Agentic software development", { exact: true })).toBeVisible();
@@ -18,7 +18,7 @@ test("serves the health endpoint", async ({ request }) => {
   expect(response.ok()).toBe(true);
   await expect(response.json()).resolves.toEqual({
     ok: true,
-    name: "vibe-template-worker",
+    name: "citefold-worker",
     routes: ["/", "/api/health", "/api/exports/bibtex", "/api/review/evidence"],
   });
 });

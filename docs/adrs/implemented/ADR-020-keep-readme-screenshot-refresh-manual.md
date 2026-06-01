@@ -1,6 +1,6 @@
 # ADR-020: Keep README Screenshot Refresh Manual
 
-**Status:** Accepted
+**Status:** Superseded by [ADR-034](./ADR-034-keep-readme-product-focused.md)
 
 **Date:** 2026-05-08
 

@@ -6,7 +6,7 @@
 
 ## Context
 
-The research-library spec defines Notero as a tool for collecting papers,
+The research-library spec defines Citefold as a tool for collecting papers,
 annotating PDFs, running SLR and MLR workflows, refining observations, and
 exporting writing inputs for Overleaf. The tempting alternative is to start by
 recreating Zotero's broad reference-management surface, including desktop-first
@@ -20,7 +20,7 @@ application complexity.
 
 ## Decision
 
-Notero will be a web-first, single-researcher review workspace before it is a
+Citefold will be a web-first, single-researcher review workspace before it is a
 general Zotero replacement.
 
 The first product architecture should prioritize browser-based library

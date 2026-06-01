@@ -6,7 +6,7 @@
 
 This project needs a concrete runnable starting point so the research-library
 product can evolve behind a tested Worker surface. The root page should stay
-minimal and visually restrained while reflecting Notero's actual product
+minimal and visually restrained while reflecting Citefold's actual product
 direction rather than a generic starter shell.
 
 ### Architecture
@@ -14,7 +14,7 @@ direction rather than a generic starter shell.
 - **Entry points:** `wrangler dev` via `src/worker.ts`
 - **Source layout:** `src/worker.ts` routes requests, `src/api/` holds API handlers, and `src/views/` holds HTML rendering modules.
 - **Styling pipeline:** `src/tailwind-input.css` compiles to `.generated/styles.css`, which the Worker serves at `/styles.css`.
-- **Starter UI contract:** `src/views/home.ts` renders a minimal Notero research
+- **Starter UI contract:** `src/views/home.ts` renders a minimal Citefold research
   workspace with library, review, route, and workflow anchors.
 - **Client code boundary:** Worker-rendered HTML must not embed executable browser code inline. Browser behavior belongs in typed TypeScript modules before being served to clients.
 - **Data models:** None yet. The stub is stateless.
@@ -35,7 +35,7 @@ direction rather than a generic starter shell.
 ### Definition of Done
 
 - [ ] The template starts locally through Wrangler without extra scaffolding.
-- [ ] The root route returns a visible Notero research workspace.
+- [ ] The root route returns a visible Citefold research workspace.
 - [ ] The root route exposes library, review, workflow, and route anchors.
 - [ ] The health route returns stable JSON for smoke tests and tooling.
 - [ ] The spec is updated in the same change set.
@@ -43,7 +43,7 @@ direction rather than a generic starter shell.
 
 ### Regression Guardrails
 
-- `GET /` must keep returning HTML with a recognizable Notero heading.
+- `GET /` must keep returning HTML with a recognizable Citefold heading.
 - `GET /` must keep rendering library and review workspace anchors.
 - `GET /` must keep rendering the route index and a visible `/api/health` entry
   point.
@@ -63,7 +63,7 @@ direction rather than a generic starter shell.
 
 - Given: the Worker is running locally
 - When: the developer visits `/`
-- Then: they see a minimal Notero workspace with library and review sections
+- Then: they see a minimal Citefold workspace with library and review sections
 
 **Scenario: Tooling checks app health**
 

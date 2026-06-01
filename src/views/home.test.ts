@@ -3,10 +3,10 @@ import { appRoutes } from "../app-routes";
 import { renderHomePage } from "./home";
 
 describe("renderHomePage", () => {
-  it("renders the Notero workspace and stylesheet wiring", () => {
+  it("renders the Citefold workspace and stylesheet wiring", () => {
     const html = renderHomePage(appRoutes);
 
-    expect(html).toContain("Notero");
+    expect(html).toContain("Citefold");
     expect(html).toContain("Research Library");
     expect(html).toContain("Library");
     expect(html).toContain("Reviews");

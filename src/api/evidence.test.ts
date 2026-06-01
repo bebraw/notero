@@ -8,7 +8,7 @@ describe("createEvidenceExportResponse", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("content-type")).toContain("application/json");
     expect(response.headers.get("cache-control")).toBe("no-store");
-    expect(response.headers.get("content-disposition")).toBe('attachment; filename="notero-evidence.json"');
+    expect(response.headers.get("content-disposition")).toBe('attachment; filename="citefold-evidence.json"');
     const body = await response.json();
 
     expect(body.observations[0]).toMatchObject({

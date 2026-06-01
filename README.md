@@ -1,76 +1,63 @@
-# vibe-template
+# Citefold
 
-`vibe-template` currently ships as a Cloudflare Worker application served with Wrangler, implemented in JavaScript/TypeScript, and centered on server-rendered HTML with a small JSON API stub.
+Citefold is a web-first research workspace for collecting papers, annotating PDFs,
+running structured literature reviews, refining observations, and exporting
+clean BibTeX for Overleaf.
 
-This is a template for my vibecoding projects and it captures what I consider my best practices so I don't have to repeat them for each experiment.
+The project is intentionally narrower than Zotero as a reference manager and
+more opinionated about the review-to-paper workflow. The first useful product
+surface is for one researcher, across desktop and mobile browsers.
 
-The repo vendors ASDLC reference material in `.asdlc/` as local guidance instead of recreating it per project. Repo-specific truth lives in `ARCHITECTURE.md`, `specs/`, and `docs/adrs/`: generated code still needs to match those documents, and passing CI alone is not enough.
+## Product Shape
 
-Local development in this repo targets macOS. Other platforms may need script and tooling adjustments before the baseline workflow works as documented.
+- Capture PDFs and citation metadata into a personal library.
+- Keep BibTeX import/export and stable citation keys as first-class workflows.
+- Annotate PDFs and turn annotations into traceable observations.
+- Organize papers, annotations, and observations with typed labels instead of a
+  flat tag cloud.
+- Run SLR and MLR projects with screening decisions, exclusion reasons,
+  extraction fields, and portable evidence exports.
+- Use local LLM assistance only when generated summaries remain linked to source
+  papers, annotations, or observations.
 
-## Documentation
+## Current App
 
-- Development setup and local CI: `docs/development.md`
-- Architecture decisions: `docs/adrs/README.md`
-- Feature and architecture specs: `specs/README.md`
-- Agent behavior and project rules: `AGENTS.md`
-- Partial-upgrade capability kits: `.capabilities/`
+The app currently runs as a Cloudflare Worker with server-rendered HTML and a
+small JSON/API surface.
 
-## Runtime
+- `GET /` renders the minimal Citefold workspace shell.
+- `GET /api/health` returns route health data.
+- `GET /api/exports/bibtex` returns the seed library as BibTeX.
+- `GET /api/review/evidence` returns source-linked review evidence as JSON.
 
-- Run `nvm use` before `npm install` or any other development command so your shell picks up the repo-pinned Node.js version from `.nvmrc` and stays close to the expected npm baseline.
-- Install dependencies with `npm install`.
-- `npm install` also configures the repo-managed `pre-push` hook so `git push` runs `npm run quality:gate:fast` before code leaves your machine.
-- The exact project Node.js version is pinned in `package.json` and mirrored in `.nvmrc` for `nvm` users, and CI reads the `package.json` value directly.
-- npm is also pinned exactly in `package.json`; local development is expected to use `nvm use`, and CI upgrades npm to the exact repo pin when the bundled npm version differs.
-- Copy `.dev.vars.example` to `.dev.vars` before running projects that need local secrets.
-- Use repo-pinned CLI tools through `npx`, including `npx wrangler` for Cloudflare-based experiments.
-- Start the stub Worker with `npm run dev`, then open `http://127.0.0.1:8787`.
-- Rebuild the generated Tailwind stylesheet manually with `npm run build:css` when needed.
+## Run Locally
 
-## Verification
+```bash
+nvm use
+npm install
+npm run dev
+```
 
-- Run the fast local gate with `npm run quality:gate:fast` during normal iteration.
-- Run the baseline repo gate with `npm run quality:gate`.
-- Run the containerized local workflow with `npm run ci:local`; it uses Agent CI parallelism with a local install lock and pauses failed runners for retry.
-- The repo-managed `pre-push` hook runs `npm run quality:gate:fast` automatically after `npm install`.
-- If local Agent CI warns about `No such remote 'origin'`, set `GITHUB_REPO=owner/repo` in `.env.agent-ci`.
-- Retry a paused local CI run with `npm run ci:local:retry -- --name <runner-name>`.
-- Install the pinned Playwright browser with `npm run playwright:install`.
-- Run unit tests from colocated `src/**/*.test.ts` files with `npm test`.
-- Run browser tests from colocated `src/**/*.e2e.ts` files with `npm run e2e`.
-- Run mutation tests against runtime `src/**/*.ts` files with `npm run mutation`.
+Open `http://127.0.0.1:8787`.
 
-## Capability Kits
+## Verify
 
-Use `.capabilities/` when another project needs one template practice without adopting the whole starter. Each kit is a reviewable partial-upgrade guide with a README, manifest, package-manager recipe, copyable files, and validation checks.
+```bash
+npm run quality:gate
+npm run ci:local
+```
 
-To apply a kit to another repo:
+Use `npm run quality:gate:fast` for quicker iteration. Development details,
+tooling notes, and troubleshooting live in [docs/development.md](docs/development.md).
 
-1. Pick the smallest matching kit from `.capabilities/README.md`.
-2. Read the kit README and `manifest.json`.
-3. Follow the target package-manager recipe under `recipes/`.
-4. Copy or merge files from `files/` without overwriting target-project conventions.
-5. Ask before applying optional adjacent setup such as creating a GitHub Actions workflow.
-6. Run the kit checks and the target repo's normal quality gate.
+## Project Context
 
-For existing projects where the right kit set is unclear, start with the negotiation prompt in `.capabilities/README.md`. It asks an agent to inspect the target repo, present a checkbox-style capability pull plan, and wait for approval before editing files.
+- Product spec: [specs/research-library/spec.md](specs/research-library/spec.md)
+- Global architecture rules: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Architecture decisions: [docs/adrs/README.md](docs/adrs/README.md)
+- Feature specs: [specs/README.md](specs/README.md)
+- Agent rules: [AGENTS.md](AGENTS.md)
 
-## Starter App
-
-- `GET /` serves a minimal editorial Worker stub with a route index and a primary health-probe link.
-- `GET /styles.css` serves the generated Tailwind stylesheet.
-- `GET /api/health` serves a JSON health response for smoke tests and tooling.
-
-## Source Layout
-
-- `src/worker.ts` is the Worker entry point and top-level router.
-- `src/api/` holds API response modules such as the health endpoint.
-- `src/views/` holds HTML rendering modules for the starter UI.
-- Tests live next to the code they exercise under `src/`.
-
-## Application Screenshot
-
-![Starter app screenshot](docs/screenshots/home.png)
-
-Refresh this asset manually when the starter UI changes materially.
+The repo vendors ASDLC reference material in `.asdlc/`. Repo-specific truth
+lives in `ARCHITECTURE.md`, `specs/`, and `docs/adrs/`; code should match those
+documents or update them intentionally in the same change.

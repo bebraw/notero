@@ -17,7 +17,7 @@ the researcher.
 
 ## Decision
 
-Notero will model review evidence explicitly through review projects,
+Citefold will model review evidence explicitly through review projects,
 screening decisions, typed labels, annotations, observations, and syntheses.
 
 Annotations must remain anchored to PDF locations. Observations must link back
@@ -66,7 +66,7 @@ ad hoc conventions.
 
 ### Spreadsheet Extraction Outside The App
 
-This would use Notero only for PDFs and citations while keeping screening and
+This would use Citefold only for PDFs and citations while keeping screening and
 extraction in external CSV or spreadsheet tools. It was rejected because the
 core product value comes from linking extraction and synthesis back to PDF
 annotations and library metadata.

@@ -1,6 +1,6 @@
 import { escapeHtml } from "./shared";
 
-const appTitle = "Notero";
+const appTitle = "Citefold";
 
 // Stryker disable all: homepage rows are static seed content for the current workspace shell.
 const reviewRows = [

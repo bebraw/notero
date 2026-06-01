@@ -64,7 +64,7 @@ export const libraryItems: readonly LibraryItem[] = [
       key: "zotero2026reader",
       entryType: "misc",
       title: "Reference managers and annotation workflows",
-      author: "Notero Research Notes",
+      author: "Citefold Research Notes",
       year: "2026",
       url: "https://www.zotero.org/support/kb/annotations_in_database",
     },

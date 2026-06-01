@@ -6,7 +6,7 @@ export function createBibTexExportResponse(): Response {
     headers: {
       "content-type": "text/x-bibtex; charset=utf-8",
       "cache-control": "no-store",
-      "content-disposition": 'attachment; filename="notero-library.bib"',
+      "content-disposition": 'attachment; filename="citefold-library.bib"',
     },
   });
 }

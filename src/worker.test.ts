@@ -13,7 +13,7 @@ describe("worker", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
 
     const body = await response.text();
-    expect(body).toContain("Notero");
+    expect(body).toContain("Citefold");
     expect(body).toContain("Research Library");
     expect(body).toContain("Agentic software development");
     expect(body).toContain("/api/health");
@@ -26,7 +26,7 @@ describe("worker", () => {
     expect(response.headers.get("content-type")).toContain("application/json");
     await expect(response.json()).resolves.toEqual({
       ok: true,
-      name: "vibe-template-worker",
+      name: "citefold-worker",
       routes: ["/", "/api/health", "/api/exports/bibtex", "/api/review/evidence"],
     });
   });

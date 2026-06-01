@@ -52,7 +52,7 @@ No accepted-only ADRs are currently pending implementation.
 | [ADR-017](./implemented/ADR-017-prune-redundant-package-scripts.md)                   | Accepted    | Keep one canonical package script per normal workflow and remove redundant aliases.            |
 | [ADR-018](./implemented/ADR-018-add-capability-kits.md)                               | Accepted    | Add lightweight capability kits for applying specific template practices to existing repos.    |
 | [ADR-019](./implemented/ADR-019-tighten-agent-workflow-guardrails.md)                 | Accepted    | Tighten TypeScript, write-target, and readiness-validation guardrails for agent work.          |
-| [ADR-020](./implemented/ADR-020-keep-readme-screenshot-refresh-manual.md)             | Accepted    | Keep README screenshot refresh manual and outside the automated development loop.              |
+| [ADR-020](./implemented/ADR-020-keep-readme-screenshot-refresh-manual.md)             | Superseded  | Keep README screenshot refresh manual and outside the automated development loop.              |
 | [ADR-021](./implemented/ADR-021-add-accepted-adr-state.md)                            | Accepted    | Add an accepted ADR state so implemented means the decision is actually reflected in the repo. |
 | [ADR-022](./implemented/ADR-022-add-mutation-testing-gate.md)                         | Accepted    | Add Stryker mutation testing to the full quality gate and CI workflow.                         |
 | [ADR-023](./implemented/ADR-023-pin-github-actions-to-commit-shas.md)                 | Accepted    | Pin GitHub Actions workflow action references to immutable commit SHAs.                        |
@@ -63,9 +63,11 @@ No accepted-only ADRs are currently pending implementation.
 | [ADR-028](./implemented/ADR-028-use-incremental-local-mutation-gate.md)               | Implemented | Use incremental Stryker runs in the local quality gate while GitHub CI runs full mutation.     |
 | [ADR-029](./implemented/ADR-029-use-relative-stryker-concurrency.md)                  | Implemented | Use percentage-based Stryker worker concurrency instead of a fixed worker count.               |
 | [ADR-030](./implemented/ADR-030-reserve-full-mutation-ci-for-github.md)               | Implemented | Reserve the full mutation workflow job for GitHub and skip it in local Agent CI.               |
-| [ADR-031](./implemented/ADR-031-build-web-first-review-workspace.md)                  | Implemented | Build Notero as a web-first, single-researcher review workspace before a Zotero replacement.   |
+| [ADR-031](./implemented/ADR-031-build-web-first-review-workspace.md)                  | Implemented | Build Citefold as a web-first, single-researcher review workspace before a Zotero replacement. |
 | [ADR-032](./implemented/ADR-032-make-bibtex-and-user-data-portable.md)                | Implemented | Treat BibTeX exchange and portable user-owned research data as core product constraints.       |
 | [ADR-033](./implemented/ADR-033-model-traceable-review-evidence.md)                   | Implemented | Model review evidence through source-linked annotations, observations, and syntheses.          |
+| [ADR-034](./implemented/ADR-034-keep-readme-product-focused.md)                       | Implemented | Keep the README concise and product-focused while moving development detail into docs.         |
+| [ADR-035](./implemented/ADR-035-adopt-citefold-product-name.md)                       | Implemented | Adopt Citefold as the current product name across app, package, export, and documentation.     |
 
 ## Creating A New ADR
 

@@ -6,19 +6,19 @@
 
 ## Context
 
-The target writing workflow remains Overleaf, so Notero must reliably produce
+The target writing workflow remains Overleaf, so Citefold must reliably produce
 clean BibTeX. At the same time, the product will store PDFs, annotations,
 labels, review decisions, extraction fields, observations, and syntheses. If
 those records become trapped in an opaque application database, the product
 would fail a core researcher requirement: the library and review work must
-remain usable outside Notero.
+remain usable outside Citefold.
 
 The research-library spec therefore treats BibTeX import/export and durable
 data portability as core behavior rather than optional backup features.
 
 ## Decision
 
-Notero will be BibTeX-first for citation exchange and portable-by-default for
+Citefold will be BibTeX-first for citation exchange and portable-by-default for
 user-owned research data.
 
 Citation records must preserve imported BibTeX when available, maintain editable
@@ -72,7 +72,7 @@ portability, and exit behavior easy to neglect.
 
 ### Zotero Sync As The Source Of Truth
 
-This would use Zotero as the backing library and build Notero as a review layer.
+This would use Zotero as the backing library and build Citefold as a review layer.
 It was rejected for the initial direction because the product is explicitly
 intended to move away from Zotero's current desktop experience and needs its own
 domain model for labels, observations, and review projects.

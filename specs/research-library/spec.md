@@ -4,7 +4,7 @@
 
 ### Context
 
-Notero is a web-first research workspace for collecting papers, reading PDFs,
+Citefold is a web-first research workspace for collecting papers, reading PDFs,
 annotating evidence, running structured literature reviews, and exporting clean
 references for writing in Overleaf.
 
@@ -27,7 +27,7 @@ administration, and word-processor integrations are later concerns.
 
 ### Product Position
 
-Notero should do less than Zotero in the first versions:
+Citefold should do less than Zotero in the first versions:
 
 - No Word, LibreOffice, Google Docs, or Overleaf live citation plugin.
 - No universal CSL citation-rendering surface beyond export-oriented metadata.
@@ -36,7 +36,7 @@ Notero should do less than Zotero in the first versions:
 - No general-purpose group-library model.
 - No requirement to support every Zotero import/export format.
 
-Notero should do more than Zotero for review-to-paper work:
+Citefold should do more than Zotero for review-to-paper work:
 
 - Review projects are first-class objects with protocol, screening, extraction,
   and synthesis state.
@@ -210,7 +210,7 @@ Required intent:
 
 ### Data Portability
 
-Notero must make user exit straightforward:
+Citefold must make user exit straightforward:
 
 - Export selected or complete references as BibTeX.
 - Preserve citation keys unless the user explicitly regenerates them.
